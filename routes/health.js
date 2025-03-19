@@ -2,8 +2,6 @@
 // import { Router } from "express";
 // const healthRouter = new Router;
 
-
-
 //* Another way 
 //what is the difference?
 import express from "express";

@@ -1,7 +1,7 @@
 import express from "express";
-import User from "../models/User";
+import User from "../models/User.js";
 
-const userRouter = express.Router();
+export const userRouter = express.Router();
 
 
 //* POST,  Create a new user
@@ -16,14 +16,24 @@ userRouter.post("/", async (req, res) => {
   }
 });
 
-//* GET , render user info.
+//* GET , render all user.
 userRouter.get('/', async(req, res) => {
   try {
     const user = await User.find();
+    res.json(user);
+  } catch (error) {
+
+  }
+})
+
+//* GET , render single user by id.
+userRouter.get('/', async(req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
     res.json(user);
   } catch (error) {
     
   }
 })
 
-export default userRouter;
+// export default userRouter;
