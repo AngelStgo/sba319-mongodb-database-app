@@ -29,4 +29,4 @@ const plantsSchema = new mongoose.Schema(
 );
 
 
-export default mongoose.model("Plants", userSchema);
+export default mongoose.model("Plants", plantsSchema);

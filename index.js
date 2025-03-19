@@ -8,10 +8,12 @@ import mongoose from 'mongoose';
 // Routers
 import { healthRouter } from './routes/health.js';
 import { userRouter } from './routes/user.js';
+import { plantsRouter } from './routes/plants.js';
 
 dotenv.config();
 // console.log(process.env.MONGODB_URI);
 
+//! should we use a DB folder and add this into a file inside the DB folder?
 // Connect to mongoDB
 await mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log(`Connected to MongoDB`))
@@ -42,13 +44,11 @@ app.get('/', (req, res) => {
     res.render("index");
 })
 
-// app.get('/user', (req, res) => {
-//   res.render("user page");
-// })
 
 // API routes
 app.use('/api/health', healthRouter);
 app.use('/api/user', userRouter);
+app.use('/api/plants', plantsRouter);
 
 
 // Global error handling

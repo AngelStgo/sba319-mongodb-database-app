@@ -1,10 +1,10 @@
 import express from "express";
-import Plants from "../models/Plants";
+import Plants from "../models/Plants.js";
 
 export const plantsRouter = express.Router();
 
 //* POST,  Create a new plant info.
-userRouter.post("/", async (req, res) => {
+plantsRouter.post("/", async (req, res) => {
   try {
     const plants = new Plants(req.body);
     await plants.save();
@@ -16,7 +16,7 @@ userRouter.post("/", async (req, res) => {
 });
 
 //* GET , render all  plants.
-userRouter.get('/', async(req, res) => {
+plantsRouter.get('/', async(req, res) => {
   try {
     const plants = await Plants.find();
     res.json(plants);
@@ -26,7 +26,7 @@ userRouter.get('/', async(req, res) => {
 })
 
 //* GET , render single plant by id.
-userRouter.get('/', async(req, res) => {
+plantsRouter.get('/', async(req, res) => {
   try {
     const plants = await Plants.findById(req.params.id);
     res.json(plants);
