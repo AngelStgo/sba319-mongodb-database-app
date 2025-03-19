@@ -5,8 +5,9 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
-// Routes
-import { healthRouter } from './routes/health.js'
+// Routers
+import { healthRouter } from './routes/health.js';
+// import userRouter from './routes/user.js';
 
 dotenv.config();
 // console.log(process.env.MONGODB_URI);
@@ -41,8 +42,13 @@ app.get('/', (req, res) => {
     res.render("index");
 })
 
+// app.get('/user', (req, res) => {
+//   res.render("user page");
+// })
+
 // API routes
 app.use('/api/health', healthRouter);
+// app.use('/user', userRouter);
 
 
 // Global error handling
