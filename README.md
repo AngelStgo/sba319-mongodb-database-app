@@ -1,9 +1,3 @@
-# Back-end API template 
+# SBA319 Backend Application with Mongoose and MongoDB.
 
-
-##  Instructions, how to re-use a template:
-
-1. Clone the repo `git clone <repo-url> <new-project-name>`
-2. cd into your new project folder and run `npm i` 
-3. Create a new `.env` file and add the `MONGODB_URI`
-4. Run the app with `npm run dev`
+#  simulate a Plants Store with Users, Plants Types, Order/ Buy plants and Review products 
