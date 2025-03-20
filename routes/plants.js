@@ -34,3 +34,25 @@ plantsRouter.get('/', async(req, res) => {
     
   }
 })
+
+//* PUT plants (edit)
+plantsRouter.put("/:id", async (req, res) => {
+  try {
+      const plants = await Plants.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      if (!plants) return res.status(404).json({ message: "plant not found" });
+      res.json(plants);
+  } catch (error) {
+      res.status(400).json({ message: error.message });
+  }
+});
+
+//* DELETE plants
+plantsRouter.delete("/:id", async (req, res) => {
+  try {
+      const plants = await Plants.findByIdAndDelete(req.params.id);
+      if (!plants) return res.status(404).json({ message: "User not found" });
+      res.json({ message: "plant deleted" });
+  } catch (error) {
+      res.status(400).json({ message: error.message });
+  }
+});
