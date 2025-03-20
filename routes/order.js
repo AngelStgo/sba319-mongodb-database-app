@@ -33,4 +33,26 @@ orderRouter.get('/', async(req, res) => {
   } catch (error) {
     
   }
-})
+});
+
+//* PUT order (edit)
+orderRouter.put("/:id", async (req, res) => {
+  try {
+      const order = await Order.findByIdAndUpdate(req.params.id, req.body, { new: true });
+      if (!order) return res.status(404).json({ message: "order not found" });
+      res.json(order);
+  } catch (error) {
+      res.status(400).json({ message: error.message });
+  }
+});
+
+//* DELETE order
+orderRouter.delete("/:id", async (req, res) => {
+  try {
+      const order = await Order.findByIdAndDelete(req.params.id);
+      if (!order) return res.status(404).json({ message: "User not found" });
+      res.json({ message: "plant deleted" });
+  } catch (error) {
+      res.status(400).json({ message: error.message });
+  }
+});

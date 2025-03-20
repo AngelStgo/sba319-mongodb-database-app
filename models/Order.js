@@ -2,14 +2,14 @@ import mongoose from "mongoose";
 
 const OrderSchema = new mongoose.Schema(
     {
-        user: { 
+        username: { 
             type: mongoose.Schema.Types.ObjectId, 
-            ref: "User", 
+            ref: "username", 
             required: true 
         },
         products: [{
             type: mongoose.Schema.Types.ObjectId, 
-            ref: "Product"
+            ref: "Plants"
             }],
         total: { 
             type: Number,

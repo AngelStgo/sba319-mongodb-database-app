@@ -12,6 +12,6 @@ export const healthRouter = express.Router();
 
 healthRouter.get('/', (req, res) => {
     res.status(200).json({
-        "status": "ok"
+        "status": "you ok, just stay highly hydrated"
     })
 });
